@@ -1,0 +1,21 @@
+{
+  project : {
+    name : 'Action Check Tracker',
+    version : '1.0.0',
+    author : 'srenshaw',
+
+    app : {
+      name : 'alternity_ACT',
+      package : 'com.darkstar.alternity.act',
+    },
+
+    build : {
+      dependencies : {
+      }
+    },
+
+    files : {
+      assets : 'assets/'
+    }
+  }
+}
