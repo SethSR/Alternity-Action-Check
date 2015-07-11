@@ -3,9 +3,22 @@ class CharacterCollection {
 		var max = [for (c in collection) c.print().length];
 		max.sort(function(a,b) return b-a);
 
-		collection.map(function(c) c.getPhase(true));
+		return [for (c in phaseSort(newPhase(collection))) '${padName(c,max[0]+1)}> ${padPhase(c)}(${c.getActions()})'].join('\n');
+	}
 
-		collection.sort(function(a,b) switch [b.getPhase(), a.getPhase()] {
+	static function padName(character: Character, n: Int): String { return StringTools.rpad(character.print(), '-', n); }
+
+	static function padPhase(character: Character): String { return StringTools.rpad('' + character.getPhase(), ' ', 9); }
+
+	static function newPhase(collection: Array<Character>): Array<Character> {
+		var result = collection.copy();
+		result.map(function(c) c.getPhase(true));
+		return result;
+	}
+
+	static function phaseSort(collection: Array<Character>): Array<Character> {
+		var result = collection.copy();
+		result.sort(function(a,b) switch [b.getPhase(), a.getPhase()] {
 			case [ Amazing,  Amazing]: return  0;
 			case [ Amazing,        _]: return  1;
 			case [       _,  Amazing]: return -1;
@@ -17,11 +30,6 @@ class CharacterCollection {
 			case [       _, Ordinary]: return -1;
 			case [Marginal, Marginal]: return  0;
 		});
-
-		return [for (c in collection)
-			StringTools.rpad(c.print(), '-', max[0]+1)
-				+ '> '
-				+ StringTools.rpad(''+ c.getPhase(), ' ', 9)
-				+ '(' + c.getActions() + ')'].join('\n');
+		return result;
 	}
 }
