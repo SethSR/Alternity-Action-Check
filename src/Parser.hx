@@ -49,7 +49,7 @@ class Parser {
 	}
 
 	static function parse_name(): String {
-		return match(~/"([^"]*)"/, 1);
+		return match(~/'([^']*)'/, 1);
 	}
 
 	static function parse_score(): Null<Int> {
