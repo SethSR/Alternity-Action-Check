@@ -6,14 +6,22 @@ class Main {
 		// var input = Sys.stdin();
 		var input = Sys.args();
 		if (input.length > 0) {
-			var file       = File.getContent(input[0]);
-			var collection = Parser.parse(file);
+			var file_str = [
+				for (file in input)
+					try
+						File.getContent(file)
+					catch (ex: Dynamic) {
+						Sys.println('Could not find a file named "$file".');
+						'';
+					}
+			];
+			var collection = Parser.parse(file_str.join('\n'));
 			var cc         = CharacterCollection.rollRound(collection);
 
 			Sys.println('');
 			Sys.println(cc);
 		} else {
-			Sys.println('No file entered');
+			Sys.println('No files found');
 		}
 	}
 }
