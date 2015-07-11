@@ -5,7 +5,7 @@
     author : 'srenshaw',
 
     app : {
-      name : 'alternity_ACT',
+      name : 'aact',
       package : 'com.darkstar.alternity.act',
     },
 
