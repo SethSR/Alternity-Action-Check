@@ -2,6 +2,7 @@ import sys.io.File;
 
 class Main {
 	static public function main() {
+		Sys.command("cls");
 		var input = Sys.args();
 		if (input.length > 0) {
 			var file_str = [
