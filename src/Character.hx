@@ -6,8 +6,8 @@ class Character {
 		modifier = m;
 	}
 
-	public function print(): String {
-		return '$name (${score+1}+/$score/${Math.floor(score/2)}/${Math.floor(score/4)})';
+	public function printScore(): String {
+		return '${score+1}+/$score/${Math.floor(score/2)}/${Math.floor(score/4)}';
 	}
 
 	static function rollDie(n: Int): Int {
