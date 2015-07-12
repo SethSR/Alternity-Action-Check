@@ -1,0 +1,6 @@
+'Amy'    15+ 2 +0
+'Barret' 14+ 2 -0
+'Cody'   13+ 2  0
+'Dash'   12+ 2 +0
+'Edgar'  11+ 2 -0
+'Forest' 10+ 2  0
